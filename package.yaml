@@ -1,0 +1,50 @@
+name: fibonacci-template
+version: '0.0.0'
+github: "githubuser/fibonacci-template"
+license: MIT
+author: "Author name here"
+maintainer: "Author name here"
+# synopsis: A new Haskeleton package.
+# description: fibonacci-template is a new Haskeleton package.
+# category: Other
+
+extra-source-files:
+- LICENSE.md
+- package.yaml
+- README.md
+- stack.yaml
+
+ghc-options: -Wall
+
+library:
+  dependencies:
+  - base
+  source-dirs: library
+
+benchmarks:
+  fibonacci-template-benchmarks:
+    source-dirs: benchmark
+    main: Main.hs
+    dependencies:
+    - base
+    - fibonacci-template
+    - deepseq
+    - clock
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts "-N -H1G -M2G"
+
+tests:
+  fibonacci-template-test-suite:
+    source-dirs: test-suite
+    main: Main.hs
+    dependencies:
+    - base
+    - fibonacci-template
+    - tasty
+    - tasty-quickcheck
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N

@@ -1,0 +1,67 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: ef89b14fef0ccd82e06173647b1e03b44c65d187dc9d4159d1df09f324914fb5
+
+name:           fibonacci-template
+version:        0.0.0
+homepage:       https://github.com/githubuser/fibonacci-template#readme
+bug-reports:    https://github.com/githubuser/fibonacci-template/issues
+author:         Author name here
+maintainer:     Author name here
+license:        MIT
+build-type:     Simple
+extra-source-files:
+    LICENSE.md
+    package.yaml
+    README.md
+    stack.yaml
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/fibonacci-template
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_fibonacci_template
+  hs-source-dirs:
+      library
+  ghc-options: -Wall
+  build-depends:
+      base
+  default-language: Haskell2010
+
+test-suite fibonacci-template-test-suite
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_fibonacci_template
+  hs-source-dirs:
+      test-suite
+  ghc-options: -Wall -rtsopts -threaded -with-rtsopts=-N
+  build-depends:
+      base
+    , fibonacci-template
+    , tasty
+    , tasty-quickcheck
+  default-language: Haskell2010
+
+benchmark fibonacci-template-benchmarks
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_fibonacci_template
+  hs-source-dirs:
+      benchmark
+  ghc-options: -Wall -rtsopts -threaded -with-rtsopts "-N -H1G -M2G"
+  build-depends:
+      base
+    , clock
+    , deepseq
+    , fibonacci-template
+  default-language: Haskell2010
